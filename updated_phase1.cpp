@@ -1,69 +1,40 @@
 
 #include<iostream>
 using namespace std;
+
+void drawLine(int spaces, int asterisks)
+{
+        for (int i = 1; i <= spaces; i++)
+            cout << (" ");
+
+        for (int i = 1; i <= asterisks; i++)
+            cout << ("*");
+
+        cout << endl;
+}
+
 int main()
 {
-   cout<<"enter an even number between 3 and 45"<<endl;
+   cout <<"enter an even number between 3 and 45" <<endl;
    //unos
 
-   int x;
-   cin>>x;
+   int sirina;
+   cin >> sirina;
    
-   if(x>=3 && x<=45 & x%2==1)
-   { 
-   x=(x/2);
-   int z=1;
-  
-   //gornja polovina romba
-    
-   for ( int i=0; i<=x; i++)
+   if (sirina < 3 || sirina > 45 || sirina % 2 == 0) 
    {
-      for (int j = x; j > i; j--)
-      {
-      cout<<" "; 
-      }
+      cout << "invalid number try again" << endl;
+      return 0;
+   }
 
-    cout<<"*";  
-    
-    if ( i>0)
-    {
-      for ( int k=1; k<=z; k++)
-      {
-        cout<<" ";
-      }
-      z+=2;
-      cout<<"*";
-    }
-    cout<<endl; 
-  }
-  z-=4;
-  
-   //donja polovina romba
+   int sredina =(sirina+1)/2;
+   
 
-  for (int i=0; i<=x-1; i++)
-  {
-    for (int j=0; j<=i; j++)
-    {
-      cout<<" ";
-    }
+    for (int i = 1; i <= sredina; i++)
+          drawLine(sredina - i, i * 2 - 1);
 
-    cout<<"*";
+    for (int i = (sredina - 1 ); i >= 1; i--)
+        drawLine(sredina - i, i * 2 - 1);
 
-    for (int k=1; k<=z; k++)
-    {
-      cout<<" ";
-    }
-    z-=2;
-
-    if (i!=x-1)
-    {
-      cout<<"*";
-    }
-    cout<<endl;
-  }
-  }
-  else{
-  	cout<<"invalid number try again";
-  }
-return 0;
+  return 0;
 }
